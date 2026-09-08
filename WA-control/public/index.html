@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WA Control</title><link rel="stylesheet" href="/style.css">
+</head><body>
+<div id="login" class="login"><div class="login-card"><div class="logo">WA</div><h1>WA Control</h1><p>Painel profissional de automação</p>
+<form id="loginForm"><label>Usuário<input id="user" required></label><label>Senha<input id="pass" type="password" required></label><button>Entrar</button><div id="err"></div></form></div></div>
+<div id="app" hidden>
+<header><div><small>PAINEL DE CONTROLE</small><h1>WA Control</h1></div><div class="head-right"><span id="badge">Desconectado</span><button class="outline" id="logout">Sair</button></div></header>
+<main>
+<div class="stats"><div><small>CONEXÃO</small><b id="conn">Offline</b></div><div><small>NÚMEROS</small><b id="nums">0</b></div><div><small>ENVIADAS</small><b id="sent">0</b></div><div><small>ERROS</small><b id="fail">0</b></div></div>
+<div class="grid">
+<section class="card"><div class="title"><div><h2>01 · Conectar WhatsApp</h2><p>Escaneie o QR Code em Aparelhos conectados.</p></div><button id="connect">Conectar</button></div><div class="qr"><div id="qr"><span>O QR Code aparecerá aqui.</span></div><div><strong id="status">Desconectado</strong><p>A sessão é salva localmente, sem banco de dados.</p></div></div></section>
+<section class="card"><div class="title"><div><h2>02 · Lista de contatos</h2><p>Um número por linha. Somente contatos com opt-in.</p></div><span class="pill" id="count">0</span></div><textarea id="numbers" placeholder="5516999999999&#10;5516888888888"></textarea><div class="actions"><label class="upload">Importar TXT/CSV<input id="file" type="file" accept=".txt,.csv"></label><button class="outline" id="clean">Remover duplicados</button></div></section>
+<section class="card full"><div class="title"><div><h2>03 · Mensagem</h2><p>Texto da campanha.</p></div><input class="name" id="campaign" placeholder="Nome da campanha"></div><textarea id="message" class="message" placeholder="Olá! Temos uma novidade para você..."></textarea><p class="tip">Variável: <code>{numero}</code></p></section>
+<section class="card"><h2>04 · Intervalo</h2><p>Intervalo mínimo de 15 segundos.</p><div class="interval"><input id="interval" type="number" min="15" max="3600"><span>segundos</span></div><label class="check"><input id="opt" type="checkbox" checked> Confirmo o consentimento dos contatos.</label></section>
+<section class="card"><h2>05 · Campanha</h2><p>Controle sua fila de envio.</p><div class="current">Atual: <b id="current">—</b></div><div class="actions"><button class="outline" id="save">Salvar</button><button id="start">▶ Iniciar</button><button class="warn" id="pause">Ⅱ Pausar</button><button class="danger" id="stop">■ Parar</button></div></section>
+<section class="card full"><div class="title"><div><h2>Histórico</h2><p>Registros armazenados em arquivo local.</p></div><button class="outline" id="refresh">Atualizar</button></div><div class="table"><table><thead><tr><th>Data</th><th>Número</th><th>Status</th><th>Detalhe</th></tr></thead><tbody id="history"></tbody></table></div></section>
+</div></main></div><script src="/app.js"></script></body></html>
