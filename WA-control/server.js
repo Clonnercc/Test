@@ -84,5 +84,7 @@ client.on("auth_failure",m=>{state.ready=false;state.status="Falha de autenticaÃ
 client.on("disconnected",()=>{state.ready=false;state.status="WhatsApp desconectado"});
 
 app.use(express.static(path.join(__dirname,"public")));
-app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
+git add .
+git commit -m "Corrige rota do Express"
+git push
 app.listen(PORT,()=>console.log("WA Control em http://localhost:"+PORT));
